@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Petsy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Petsy</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<div class="header">
+		<div class="header-content">
+			<div class="logo">
+				<h1>Petsy</h1>
+			</div>
+			<ul class="menu">
+				<li>Pets</li>
+				<li>About</li>
+				<li>Contact</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="wrap">
+		<%= yield %>
+	</div>
 
 </body>
 </html>

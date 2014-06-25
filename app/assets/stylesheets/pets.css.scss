@@ -1,0 +1,41 @@
+.clear { clear: both; }
+
+html, body, h1, ul { margin: 0; padding: 0; }
+
+.header {
+	background-color: #6BB9F0;
+	.header-content {
+		max-width: 980px;
+		margin: 0 auto;
+		height: 50px;
+		.logo {
+			float: left;
+			height: 50px;
+			h1 {
+				color: white;
+				text-transform: uppercase;
+				line-height: 50px;
+			}
+		}
+		.menu {
+			float: right;
+			height: 50px;
+			li {
+				display: inline-block;
+				line-height: 50px;
+			}
+		}
+	}
+}
+
+.wrap {
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.pets-list {
+	list-style-type: none;
+	li {
+		display: inline-block;
+	}
+}

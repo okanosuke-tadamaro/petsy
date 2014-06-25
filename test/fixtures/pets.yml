@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pf_id: MyString
+  name: MyString
+  type: 
+  breed: MyString
+
+two:
+  pf_id: MyString
+  name: MyString
+  type: 
+  breed: MyString
