@@ -1,8 +1,9 @@
+<div class="wrap-content">
 <% if session[:zipcode] %>
 <div id="pets-list">
 	<% @pets.each do |pet| %>
 	<div class="pet shadow">
-		<img src="<%= pet.photos.first.url %>">
+		<a href="/pets/<%= pet.id %>"><img src="<%= pet.photos.first.url %>"></a>
 		<div class="pet-content">
 			<h3><%= pet.name.split.first %><small><%= pet.sex %> <%= pet.age %></small></h3>
 			<ul class="breeds">
@@ -17,6 +18,7 @@
 <% else %>
 
 <% end %>
+</div>
 
 <%= javascript_tag do %>
 	masonryLayout();

@@ -4,6 +4,8 @@ class Pet < ActiveRecord::Base
 	has_and_belongs_to_many :breeds
 	has_many :photos
 
+	validates_presence_of :pf_id, :shelter_id, :animal_type, :name, :age, :sex, :size, :description, :last_update
+
 	@@petfinder_url = 'http://api.petfinder.com/'
 
 	def self.get_pets(location)

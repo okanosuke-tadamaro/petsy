@@ -55,13 +55,14 @@ body {
 
 .header {
 	background-color: white;
-	padding-left: 5px;
-	padding-right: 5px;
+	width: 100%;
+	position: fixed;
+	z-index: 2;
+	height: 100px;
 	.header-content {
 		font-family: 'Roboto Slab';
 		max-width: 1100px;
 		margin: 0 auto;
-		margin-bottom: 20px;
 		height: 100px;
 		.logo {
 			float: left;
@@ -96,6 +97,10 @@ body {
 
 .wrap {
 	width: 100%;
+}
+
+.wrap-content {
+	padding-top: 120px;
 }
 
 #pets-list {

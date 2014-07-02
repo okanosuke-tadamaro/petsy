@@ -32,8 +32,7 @@ function masonryLayout() {
 	var container = $('#pets-list');
 	container.imagesLoaded(function() {
 		container.BlocksIt({
-			numOfCol: 5,
-			
+			numOfCol: 5			
 		});
 	});
 }
