@@ -11,24 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624234925) do
+ActiveRecord::Schema.define(version: 20140625184703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "breeds", force: true do |t|
     t.string   "breed"
-    t.integer  "pet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "breeds", ["pet_id"], name: "index_breeds_on_pet_id", using: :btree
+  create_table "breeds_pets", id: false, force: true do |t|
+    t.integer "breed_id", null: false
+    t.integer "pet_id",   null: false
+  end
+
+  create_table "locations", force: true do |t|
+    t.integer  "zipcode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations_pets", id: false, force: true do |t|
+    t.integer "location_id", null: false
+    t.integer "pet_id",      null: false
+  end
 
   create_table "pets", force: true do |t|
     t.integer  "pf_id"
     t.string   "shelter_id"
-    t.string   "type"
+    t.string   "animal_type"
     t.string   "name"
     t.string   "age"
     t.string   "sex"

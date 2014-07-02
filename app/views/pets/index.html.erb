@@ -1,5 +1,23 @@
+<% if session[:zipcode] %>
+<div id="pets-list">
+	<% @pets.each do |pet| %>
+	<div class="pet shadow">
+		<img src="<%= pet.photos.first.url %>">
+		<div class="pet-content">
+			<h3><%= pet.name.split.first %><small><%= pet.sex %> <%= pet.age %></small></h3>
+			<ul class="breeds">
+				<% pet.breeds.each do |breed| %>
+				<li><%= breed.breed %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<% end %>
+</div>
+<% else %>
 
+<% end %>
 
 <%= javascript_tag do %>
-	getLocation();
+	masonryLayout();
 <% end %>
