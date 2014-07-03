@@ -1,1 +1,26 @@
-showpage
+<div class="wrap-content">
+	<div class="content">
+		
+		<% if @pet.photos.any? %>
+		<div class="photos">
+			<img src="<%= @pet.photos.first.url %>" id="focused" class="shadow">
+			<div class="thumb-box">
+			<% @pet.photos.each do |image| %>
+				<img src="<%= image.url %>" class="thumb shadow">
+			<% end %>
+			</div>
+		</div>
+		<% end %>
+
+		<div class="pet-info">
+			<h3><%= @pet.name %></h3>
+			<ul class="breeds">
+				<% @pet.breeds.each do |breed| %>
+					<li><%= breed.breed %></li>
+				<% end %>	
+			</ul>
+			<p class="description"><%= @pet.description %></p>
+		</div>
+		
+	</div>
+</div>

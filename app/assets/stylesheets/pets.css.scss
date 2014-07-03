@@ -69,10 +69,15 @@ body {
 			height: 100px;
 			h1 {
 				font-size: 30px;
-				color: lightgray;
+				color: #336E7B;
 				text-transform: uppercase;
 				letter-spacing: 8px;
 				line-height: 100px;
+				small {
+					font-size: 12px;
+					color: darkgray;
+					letter-spacing: 0px;
+				}
 			}
 		}
 		.menu {
@@ -147,6 +152,52 @@ body {
 					margin-bottom: 3px;
 				}
 			}
+		}
+	}
+}
+
+.content {
+	max-width: 1100px;
+	margin: 0 auto;
+	.photos {
+		float: left;
+		width: 30%;
+		#focused {
+			width: 100%;
+		}
+		.thumb-box {
+			margin-top: 5px;
+			img {
+				height: 65px;
+				margin-right: 3px;
+			}
+		}
+	}
+	.pet-info {
+		width: 65%;
+		float: right;
+		h3 {
+			font-size: 30px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		.breeds {
+			padding: 10px 0 15px 0;
+			border-bottom: solid 1px lightgray;
+			li {
+				display: inline-block;
+				background-color: #52A4B7;
+				color: white;
+				padding: 5px;
+				margin-right: 3px;
+				text-transform: uppercase;
+			}
+		}
+		.description {
+			margin: 15px 0 15px 0;
+			font-family: 'Roboto Slab';
+			line-height: 25px;
+			font-size: 16px;
 		}
 	}
 }

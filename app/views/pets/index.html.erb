@@ -3,7 +3,13 @@
 <div id="pets-list">
 	<% @pets.each do |pet| %>
 	<div class="pet shadow">
-		<a href="/pets/<%= pet.id %>"><img src="<%= pet.photos.first.url %>"></a>
+		<a href="/pets/<%= pet.id %>">
+			<% if pet.photos.any? %>
+				<img src="<%= pet.photos.first.url %>">
+			<% else %>
+				<img src="http://placehold.it/300x300">
+			<% end %>
+		</a>
 		<div class="pet-content">
 			<h3><%= pet.name.split.first %><small><%= pet.sex %> <%= pet.age %></small></h3>
 			<ul class="breeds">
