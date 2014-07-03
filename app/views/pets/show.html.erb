@@ -6,7 +6,7 @@
 			<img src="<%= @pet.photos.first.url %>" id="focused" class="shadow">
 			<div class="thumb-box">
 			<% @pet.photos.each do |image| %>
-				<img src="<%= image.url %>" class="thumb shadow">
+				<img src="<%= image.url || 'http://placehold.it/350x350' %>" class="thumb shadow">
 			<% end %>
 			</div>
 		</div>
@@ -20,6 +20,11 @@
 				<% end %>	
 			</ul>
 			<p class="description"><%= @pet.description %></p>
+			<ul class="options">
+				<% @pet.options.each do |option| %>
+					<li><%= option.option %></li>
+				<% end %>
+			</ul>
 		</div>
 		
 	</div>

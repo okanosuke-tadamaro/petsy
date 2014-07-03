@@ -26,7 +26,6 @@ class Pet < ActiveRecord::Base
 		response = Pet.api_request(location)
 		if !response.empty?
 			response["petfinder"]["pets"]["pet"].each do |pet|
-
 				if !Pet.exists?(pf_id: pet["id"])
 					new_pet = Pet.create(
 						pf_id: 				pet["id"],
@@ -62,6 +61,20 @@ class Pet < ActiveRecord::Base
 						pet["media"]["photos"]["photo"].each do |photo|
 							photo_url = photo.to_s.gsub(/\?\w*\=/, '').gsub(/\&\w*=\d*\&-\w*/, '')
 							new_pet.photos.create(url: photo_url) if !new_pet.photos.exists?(url: photo_url)
+						end
+					end
+
+					if pet["options"] != nil
+						if pet["options"]["option"].class != Array
+							pet["options"]["option"] = [pet["options"]["option"]]
+						end
+						pet["options"]["option"].each do |option|
+							if !Option.exists?(option: option)
+								new_pet.options.create(option: option)
+							else
+								option_info = Option.find_by(option: option)
+								new_pet.options << option_info
+							end
 						end
 					end
 
