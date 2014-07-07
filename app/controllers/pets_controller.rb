@@ -32,4 +32,8 @@ class PetsController < ApplicationController
 		@pet = Pet.find(params[:id])
 	end
 
+	def match
+
+	end
+
 end

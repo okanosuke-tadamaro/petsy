@@ -11,7 +11,7 @@ class Pet < ActiveRecord::Base
 
 	def self.api_request(location)
 		begin
-			response = Crack::XML.parse(RestClient.get(@@petfinder_url + 'pet.find?key=' + ENV['PETFINDER_KEY'] + '&animal=dog&location=' + location.zipcode.to_s + '&count=20&output=full'))
+			response = Crack::XML.parse(RestClient.get(@@petfinder_url + 'pet.find?key=' + ENV['PETFINDER_KEY'] + '&location=' + location.zipcode.to_s + '&count=20&output=full'))
 			if response["petfinder"]["header"]["status"]["code"] == "999"
 				return []
 			else

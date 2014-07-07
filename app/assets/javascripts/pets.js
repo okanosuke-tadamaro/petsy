@@ -37,6 +37,19 @@ function masonryLayout() {
 	});
 }
 
+function matchForm() {
+	$('.match-box').on('click', 'button', function(e) {
+		progressForm(e.target.id);
+	});
+	$('#match-1').fadeIn('slow');
+}
+
+function progressForm(stage) {
+	var nextStage = parseInt(stage) + 1;
+	$('#match-' + stage).fadeOut('slow');
+	$('#match-' + nextStage).fadeIn('slow');
+}
+
 $(document).ready(function() {
 	if($('body').data('currentLocation') !== "") {
 		console.log('poop');
