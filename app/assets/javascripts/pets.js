@@ -17,7 +17,7 @@ $(window).resize(function() {
 		col = 5;
 	}
 
-	if(conWidth != currentWidth) {
+	if (conWidth != currentWidth) {
 		currentWidth = conWidth;
 		$('#pets-list').width(conWidth);
 		$('#pets-list').BlocksIt({

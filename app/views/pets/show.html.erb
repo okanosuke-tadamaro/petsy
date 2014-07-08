@@ -21,9 +21,13 @@
 			</ul>
 			<p class="description"><%= @pet.description || "No description is available." %></p>
 			<ul class="options">
+			<% if @pet.options.any? %>
 				<% @pet.options.each do |option| %>
 					<li><%= option.option %></li>
 				<% end %>
+			<% else %>
+				<li>No extra information</li>
+			<% end %>
 			</ul>
 		</div>
 		
