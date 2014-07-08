@@ -10,7 +10,12 @@
 				<% end %>
 			</a>
 			<div class="pet-content">
-				<h3><%= pet.name.split.first %><small><%= pet.sex %> <%= pet.age %></small></h3>
+				<h3><%= pet.name.split.first %></h3>
+				<ul class="basic-info">
+					<li><%= pet.sex %></li>
+					<li><%= pet.age %></li>
+				</ul>
+				<div class="clear"></div>
 				<ul class="breeds">
 					<% pet.breeds.each do |breed| %>
 					<li><%= breed.breed %></li>
