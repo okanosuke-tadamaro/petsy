@@ -15,6 +15,4 @@
 //= require turbolinks
 //= require imagesloaded
 //= require blocksit.min
-//= require jquery.modal.min
-//= require site
 //= require_tree .

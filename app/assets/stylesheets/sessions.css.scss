@@ -1,3 +1,82 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.overlay{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 100;
+	display: none;
+}
+
+.modal{
+	display: none;
+	background: #f5f5f5;
+	z-index: 101;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	.modal-header {
+		background-color: #336E7B;
+		padding: 15px;
+		h3 {
+			font-family: 'Roboto Slab';
+			font-size: 18px;
+			font-weight: normal;
+			line-height: 18px;
+			color: white;
+		}
+	}
+	.modal-content {
+		padding: 15px;
+		.sign-in-form, .new-user-form {
+			width: 100%;
+			label {
+				font-family: 'Roboto Slab';
+				font-size: 16px;
+				color: gray;
+			}
+			input[type="email"], input[type="password"] {
+				border: none;
+				width: 260px;
+				height: 25px;
+				line-height: 14px;
+				font-family: 'Roboto Slab';
+				font-size: 14px;
+				padding: 5px;
+				text-indent: 5px;
+				margin: 5px 0 10px 0;
+			}
+			input[type="submit"] {
+				width: 100%;
+				border: none;
+				height: 45px;
+				line-height: 16px;
+				font-size: 16px;
+				font-family: 'Roboto Slab';
+				color: white;
+				background-color: #336E7B;
+				cursor: pointer;
+				margin-top: 10px;
+			}
+			input[type="submit"]:hover {
+				background-color: #52A4B7;
+			}
+			.new-users, .existing-users {
+				font-family: 'Roboto Slab';
+				font-size: 14px;
+				line-height: 14px;
+				margin: 10px 0 10px 3px;
+				.switch {
+					color: #336E7B;
+					text-decoration: underline;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
