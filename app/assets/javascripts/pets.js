@@ -3,7 +3,10 @@ var currentWidth = 1100;
 $(window).resize(function() {
 	var winWidth = $(window).width();
 	var conWidth;
-	if(winWidth < 660) {
+	if(winWidth < 400) {
+		conWidth = 320;
+		col = 1;
+	} else if(winWidth < 660) {
 		conWidth = 440;
 		col = 2;
 	} else if(winWidth < 880) {
@@ -52,8 +55,11 @@ function progressForm(stage) {
 
 function showModal() {
 	$('.overlay').show();
-	$('#sign-in').data('visibility', true);
-	$('#sign-in').show();
+	$('.overlay').animate({height: '100%'}, 200, function() {
+		$('#sign-in').data('visibility', true);
+		$('#sign-in').fadeIn(200);
+		$('#sign-in .email input').focus();
+	});
 }
 
 function hideModal() {
@@ -64,19 +70,43 @@ function hideModal() {
 		}
 	});
 	$(this).hide();
+	$(this).css('height', '0%');
 }
 
 function switchModal() {
 	if ($('#sign-in').data('visibility') === true) {
-		$('#sign-in').hide();
-		$('#sign-in').data('visibility', false);
-		$('#sign-up').show();
-		$('#sign-up').data('visibility', true);
+		$('#sign-in').fadeOut(200, function() {
+			$('#sign-in').data('visibility', false);
+			$('#sign-up').fadeIn(200);
+			$('#sign-up').data('visibility', true);
+			$('#sign-up .email input').focus();
+		});
 	} else {
-		$('#sign-up').hide();
-		$('#sign-up').data('visibility', false);
-		$('#sign-in').show();
-		$('#sign-in').data('visibility', true);
+		$('#sign-up').fadeOut(200, function() {
+			$('#sign-up').data('visibility', false);
+			$('#sign-in').fadeIn(200);
+			$('#sign-in').data('visibility', true);
+			$('#sign-in .email input').focus();
+		});
+	}
+}
+
+function toggleDonation() {
+	var userStatus = $('body').data('currentUser');
+	if (userStatus === "") {
+		$('.user-modal-link').click();
+	} else {
+		var star = $(this).children('i');
+		if (!$(this).hasClass('donated')) {
+			star.removeClass('fa-star-o').addClass('fa-star').css('color', 'orange');
+			$(this).addClass('donated animated tada');
+			$(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+				$(this).removeClass('animated tada');
+			});
+		} else {
+			star.removeClass('fa-star').addClass('fa-star-o').css('color', '#336E7B');
+			$(this).removeClass('donated');
+		}
 	}
 }
 
@@ -94,6 +124,14 @@ function initializeEvents() {
 			$('.visible').hide();
 		});
 	});
+
+	// NOTICES
+	if ($('.notice').length > 0) {
+		$('.notice').delay(3000).fadeOut(200);
+	}
+
+	// DONATION STARS
+	$('#pets-list').on('click', '.donate', toggleDonation);
 }
 
 $(document).ready(function() {

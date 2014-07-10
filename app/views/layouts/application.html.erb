@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Petsy</title>
 	<%= stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => true %>
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -9,7 +10,7 @@
 	<%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 </head>
-<body data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-current-location="<%= session[:zipcode] %>">
+<body data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-current-user="<%= session[:email] %>" data-current-location="<%= session[:zipcode] %>">
 
 	<div class="header">
 		<div class="header-content">
@@ -49,7 +50,7 @@
 			<div class="sign-in-form">
 				<%= form_tag '/sign_in' do %>
 				<label>Email</label>
-				<p><%= email_field_tag :email %></p>
+				<p class="email"><%= email_field_tag :email %></p>
 				<label>Password</label>
 				<p><%= password_field_tag :password %></p>
 				<p class="new-users">Are you new to Petsy? <span class="switch">Sign up</span></p>
@@ -68,7 +69,7 @@
 			<div class="new-user-form">
 				<%= form_for User.new do |f| %>
 				<label>Email</label>
-				<p><%= f.email_field :email %></p>
+				<p class="email"><%= f.email_field :email %></p>
 				<label>Password</label>
 				<p><%= f.password_field :password %></p>
 				<label>Password Confirmation</label>
@@ -80,6 +81,10 @@
 			</div>
 		</div>
 	</div>
+
+	<% if flash.notice %>
+	<div class="notice shadow"><%= flash.notice %></div>
+	<% end %>
 
 	<%= javascript_tag do %>
 	initializeEvents();

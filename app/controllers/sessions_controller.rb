@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: params[:email])
 		if @user && @user.authenticate(params[:password])
 			session[:email] = @user.email
-			redirect_to params[:path]
+			redirect_to params[:path], :notice => "Successfully logged in!"
 		else
 			redirect_to params[:path], :notice => "Oops, something went wrong..."
 		end
