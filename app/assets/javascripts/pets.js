@@ -1,4 +1,6 @@
-//window resize
+var goal = 4;
+
+// WINDOW RESIZE FOR MASONRY LAYOUT
 var currentWidth = 1100;
 $(window).resize(function() {
 	var winWidth = $(window).width();
@@ -91,21 +93,33 @@ function switchModal() {
 	}
 }
 
+function makeDonationProgress() {
+	var currentProgress = $('.donated').length;
+	var resultProgress = (100 / goal) * currentProgress;
+	$('.progress').text('hello').animate({width: resultProgress + '%'});
+}
+
 function toggleDonation() {
 	var userStatus = $('body').data('currentUser');
 	if (userStatus === "") {
+		// SHOW LOG IN MODAL IF NOT SIGNED IN
 		$('.user-modal-link').click();
 	} else {
+		// TOGGLE DONATION
 		var star = $(this).children('i');
 		if (!$(this).hasClass('donated')) {
+			// ENABLE DONATION
 			star.removeClass('fa-star-o').addClass('fa-star').css('color', 'orange');
 			$(this).addClass('donated animated tada');
+			makeDonationProgress();
 			$(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$(this).removeClass('animated tada');
 			});
 		} else {
+			// DISABLE DONATION
 			star.removeClass('fa-star').addClass('fa-star-o').css('color', '#336E7B');
 			$(this).removeClass('donated');
+			makeDonationProgress();
 		}
 	}
 }

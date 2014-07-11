@@ -136,6 +136,23 @@ body {
 	}
 }
 
+.progress-bar {
+	position: fixed;
+	height: 5px;
+	width: 100%;
+	top: 100px;
+	background-color: #E2F0F3;
+	z-index: 3;
+	.progress {
+		width: 10%;
+		text-align: right;
+		font-size: 5px;
+		line-height: 5px;
+		color: white;
+		background-color: #61ACBD;
+	}
+}
+
 .wrap {
 	width: 100%;
 }
