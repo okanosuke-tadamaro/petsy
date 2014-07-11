@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
 
 	def index
-		@pets = Pet.all.sample(20)
+		@pets = Pet.all.limit(20).reverse
 	end
 
 	def location

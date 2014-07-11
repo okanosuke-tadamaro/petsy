@@ -1,4 +1,5 @@
 // BASE COLOR: #336E7B
+// SECONDARY COLOR: #F4B350
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -61,7 +62,7 @@ body {
 	background-color: white;
 	width: 100%;
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
 	height: 100px;
 	.header-content {
 		font-family: 'Roboto Slab';
@@ -136,20 +137,24 @@ body {
 	}
 }
 
-.progress-bar {
+#progress-bar {
 	position: fixed;
 	height: 5px;
 	width: 100%;
 	top: 100px;
 	background-color: #E2F0F3;
-	z-index: 3;
-	.progress {
+	border-bottom: solid 1px white;
+	z-index: 2;
+	#progress {
+		position: relative;
 		width: 10%;
 		text-align: right;
 		font-size: 5px;
 		line-height: 5px;
-		color: white;
 		background-color: #61ACBD;
+		#progress-view {
+
+		}
 	}
 }
 
@@ -188,6 +193,7 @@ body {
 			h3 {
 				font-size: 16px;
 				text-transform: uppercase;
+				font-family: 'arial';
 				float: left;
 			}
 			.basic-info {
@@ -201,7 +207,7 @@ body {
 					border: solid 1px lightgray;
 				}
 			}
-			.donate {
+			#donate {
 				float: right;
 				font-size: 16px;
 				color: #336E7B;
@@ -214,6 +220,11 @@ body {
 				}
 				i:hover {
 					color: #52A4B7;
+				}
+			}
+			.donated {
+				i {
+					color: #F4B350;
 				}
 			}
 			.breeds {

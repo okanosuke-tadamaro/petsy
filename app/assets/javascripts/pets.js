@@ -96,7 +96,12 @@ function switchModal() {
 function makeDonationProgress() {
 	var currentProgress = $('.donated').length;
 	var resultProgress = (100 / goal) * currentProgress;
-	$('.progress').text('hello').animate({width: resultProgress + '%'});
+	var progressView = $('<span>').text(currentProgress + ' / ' + goal).attr('id', 'progress-view');
+	$('#progress').html(progressView).animate({width: resultProgress + '%'}, 300, function() {
+		if (currentProgress === 0) {
+			$('#progress').html('');
+		}
+	});
 }
 
 function toggleDonation() {
@@ -109,7 +114,7 @@ function toggleDonation() {
 		var star = $(this).children('i');
 		if (!$(this).hasClass('donated')) {
 			// ENABLE DONATION
-			star.removeClass('fa-star-o').addClass('fa-star').css('color', 'orange');
+			star.removeClass('fa-star-o').addClass('fa-star');
 			$(this).addClass('donated animated tada');
 			makeDonationProgress();
 			$(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -117,7 +122,7 @@ function toggleDonation() {
 			});
 		} else {
 			// DISABLE DONATION
-			star.removeClass('fa-star').addClass('fa-star-o').css('color', '#336E7B');
+			star.removeClass('fa-star').addClass('fa-star-o');
 			$(this).removeClass('donated');
 			makeDonationProgress();
 		}
@@ -145,7 +150,7 @@ function initializeEvents() {
 	}
 
 	// DONATION STARS
-	$('#pets-list').on('click', '.donate', toggleDonation);
+	$('#pets-list').on('click', '#donate', toggleDonation);
 }
 
 $(document).ready(function() {
