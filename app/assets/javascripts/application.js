@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require imagesloaded
 //= require blocksit.min
 //= require_tree .

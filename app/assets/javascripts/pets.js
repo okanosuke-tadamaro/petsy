@@ -13,7 +13,7 @@ function setColumns() {
 	var conWidth;
 	if(winWidth < 400) {
 		conWidth = 320;
-		col = 1;
+		col = 2;
 	} else if(winWidth < 660) {
 		conWidth = 440;
 		col = 2;
