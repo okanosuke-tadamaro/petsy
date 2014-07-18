@@ -1,8 +1,14 @@
+var col;
 var goal = 4;
 
 // WINDOW RESIZE FOR MASONRY LAYOUT
 var currentWidth = 1100;
+
 $(window).resize(function() {
+	setColumns();
+});
+
+function setColumns() {
 	var winWidth = $(window).width();
 	var conWidth;
 	if(winWidth < 400) {
@@ -31,13 +37,13 @@ $(window).resize(function() {
 			offsetY: 8
 		});
 	}
-});
+}
 
-function masonryLayout() {
+function masonryLayout(col) {
 	var container = $('#pets-list');
 	container.imagesLoaded(function() {
 		container.BlocksIt({
-			numOfCol: 5			
+			numOfCol: col
 		});
 	});
 }
