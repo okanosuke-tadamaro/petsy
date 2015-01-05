@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'pets#index'
+  root 'static_pages#home'
 
   post '/sign_in' => 'sessions#create'
   get '/sign_out' => 'sessions#destroy'

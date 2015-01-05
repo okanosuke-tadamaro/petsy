@@ -24,6 +24,7 @@ group :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'quiet_assets'
 end
 
 group :production do
