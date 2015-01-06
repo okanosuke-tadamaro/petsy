@@ -15,10 +15,11 @@
 		<div class="header">
 			<div class="header-content">
 				<div class="logo">
-					<h1>Petsy<small>The right entrance to a smart pet life</small></h1>
+					<h1><%= link_to 'Petsy', root_path %><small>The right entrance to a smart pet life</small></h1>
 				</div>
 				<ul class="menu">
-					<li><%= link_to 'Pets', root_path %></li>
+					<li><%= link_to 'About this site', about_path %></li>
+					<li><%= link_to 'Pets', pets_path %></li>
 					<li><%= link_to 'Adoptions', match_path %></li>
 					<% if current_user %>
 						<li class="dropdown">
@@ -35,10 +36,12 @@
 			</div>
 		</div>
 
-<!-- 		<div id="progress-bar">
-			<div id="progress">
+		<% if params[:controller] != 'static_pages' %>
+			<div id="progress-bar">
+				<div id="progress">
+				</div>
 			</div>
-		</div> -->
+		<% end %>
 
 		<div class="wrap">
 			<%= yield %>
