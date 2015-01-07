@@ -1,4 +1,7 @@
 <div class="wrap-content">
+
+	<%= render('search_form') %>
+
 	<div id="pets-list">
 		<% @pets.each do |pet| %>
 			<div class="pet shadow">
@@ -10,7 +13,7 @@
 					<% end %>
 				</a>
 				<div class="pet-content">
-					<h3><%= pet.name.split.first %></h3>
+					<h3><%= pet.name.split.first.downcase.capitalize %></h3>
 					<ul class="basic-info">
 						<li><%= pet.sex %></li>
 						<li><%= pet.age %></li>
@@ -26,6 +29,7 @@
 			</div>
 		<% end %>
 	</div>
+
 </div>
 
 <%= javascript_tag do %>

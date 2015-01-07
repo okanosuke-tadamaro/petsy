@@ -12,8 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'crack'
 gem 'geocoder'
 gem 'bcrypt'
-
-gem 'spring',        group: :development
+gem 'thin'
 
 group :development do
   gem 'pry'
