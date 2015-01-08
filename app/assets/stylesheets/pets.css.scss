@@ -94,6 +94,10 @@ body {
 		}
 		.menu-container {
 			position: relative;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
 			float: right;
 			text-align: right;
 			.menu {
@@ -126,7 +130,6 @@ body {
 						transform: translateX(-50%);
 						li {
 							line-height: 40px;
-							margin: 0;
 							background-color: #336E7B;
 							width: 100%;
 							a 			{ padding: 0 10px 0 10px; color: white; }
@@ -135,21 +138,6 @@ body {
 						li:hover {
 							background-color: #7EBBC9;
 						}
-					}
-				}
-			}
-			#search-form {
-				font-size: 12px;
-				li {
-					display: inline;
-					input {
-						border: none;
-						padding: 5px;
-						font-family: 'Noto Sans';
-					}
-					input[type="text"] {
-						border-bottom: solid 1px lightgray;
-						width: 80px;
 					}
 				}
 			}
@@ -196,7 +184,7 @@ body {
 		width:188px;
 		min-height:100px;
 		background:#fff;
-		margin:8px;
+		margin:4px;
 		font-size:12px;
 		float:left;
 		-webkit-transition: top 1s ease, left 1s ease;

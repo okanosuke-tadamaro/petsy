@@ -160,7 +160,7 @@ function initializeEvents() {
 }
 
 $(document).ready(function() {
-	
 
+	
 
 });
