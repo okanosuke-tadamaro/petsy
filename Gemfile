@@ -12,6 +12,7 @@ gem 'crack'
 gem 'geocoder'
 gem 'bcrypt'
 gem 'thin'
+gem 'greensock-rails'
 
 group :development do
   gem 'pry'

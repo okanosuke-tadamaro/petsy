@@ -10,11 +10,8 @@ class ApplicationController < ActionController::Base
   	User.find_by(email: session[:email])
   end
 
-  def current_location
-  	Location.find_by(zipcode: session[:zipcode])
-  end
-
   def breeds_list
     Breed.all.map { |breed| [breed.breed, breed.id] }
   end
+
 end

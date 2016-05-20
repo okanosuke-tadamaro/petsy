@@ -11,54 +11,18 @@
 		<%= javascript_include_tag 'application' %>
 		<%= csrf_meta_tags %>
 	</head>
-	<body data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-current-user="<%= session[:email] %>" data-current-location="<%= session[:zipcode] %>">
+	<body data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>">
 
-		<div class="header">
-			<div class="header-content">
-				<div class="logo">
-					<h1><%= link_to 'Petsy', root_path %></h1><small>Entrance to a smart pet life</small>
-				</div>
-				<div class="menu-container">
-					<ul class="menu">
-						<li><%= link_to 'About this site', about_path %></li>
-						<li><%= link_to 'Pets', pets_path %></li>
-						<li><%= link_to 'Adoptions', match_path %></li>
-						<% if current_user %>
-							<li class="dropdown">
-							<a class="user-menu-link"><%= current_user.email %></a>
-							<ul class="dropdown-list shadow">
-								<li><%= link_to "My Account", current_user %></li>
-								<li><%= link_to "Sign out", '/sign_out' %></li>
-							</ul>
-							</li>
-						<% else %>
-							<li><a class="user-modal-link">Sign in</a></li>
-						<% end %>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<% if params[:controller] != 'static_pages' %>
-			<div id="progress-bar">
-				<div id="progress">
-				</div>
-			</div>
-		<% end %>
-
-		<div class="wrap">
-			<%= yield %>
-		</div>
+		<%= yield %>
 
 		<div class="overlay"></div>
-
 		<div class="modal shadow" id="sign-in">
 			<div class="modal-header">
 				<h3>Sign in to Petsy</h3>
 			</div>
 			<div class="modal-content">
 				<div class="sign-in-form">
-					<%= form_tag '/sign_in' do %>
+					<%= form_tag '/login' do %>
 						<label>Email</label>
 						<p class="email"><%= email_field_tag :email %></p>
 						<label>Password</label>
@@ -70,7 +34,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="modal shadow" id="sign-up">
 			<div class="modal-header">
 				<h3>Sign up to Petsy</h3>

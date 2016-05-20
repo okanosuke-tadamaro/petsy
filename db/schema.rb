@@ -16,40 +16,40 @@ ActiveRecord::Schema.define(version: 20140709155157) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "breeds", force: true do |t|
+  create_table "breeds", force: :cascade do |t|
     t.string   "breed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "breeds_pets", id: false, force: true do |t|
+  create_table "breeds_pets", id: false, force: :cascade do |t|
     t.integer "breed_id", null: false
     t.integer "pet_id",   null: false
   end
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "locations_pets", id: false, force: true do |t|
+  create_table "locations_pets", id: false, force: :cascade do |t|
     t.integer "location_id", null: false
     t.integer "pet_id",      null: false
   end
 
-  create_table "options", force: true do |t|
+  create_table "options", force: :cascade do |t|
     t.string   "option"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "options_pets", id: false, force: true do |t|
+  create_table "options_pets", id: false, force: :cascade do |t|
     t.integer "option_id", null: false
     t.integer "pet_id",    null: false
   end
 
-  create_table "pets", force: true do |t|
+  create_table "pets", force: :cascade do |t|
     t.integer  "pf_id"
     t.string   "shelter_id"
     t.string   "animal_type"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140709155157) do
     t.datetime "updated_at"
   end
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "url"
     t.integer  "pet_id"
     t.datetime "created_at"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140709155157) do
 
   add_index "photos", ["pet_id"], name: "index_photos_on_pet_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"

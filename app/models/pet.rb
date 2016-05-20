@@ -9,6 +9,14 @@ class Pet < ActiveRecord::Base
 
 	@@petfinder_url = 'http://api.petfinder.com/'
 
+	def self.out_of_date?
+
+	end
+
+	def self.update_pets
+		binding.pry
+	end
+
 	def self.api_request(location)
 		begin
 			response = Crack::XML.parse(RestClient.get(@@petfinder_url + 'pet.find?key=' + ENV['PETFINDER_KEY'] + '&location=' + location.zipcode.to_s + '&count=20&output=full'))
@@ -78,7 +86,7 @@ class Pet < ActiveRecord::Base
 						end
 					end
 
-				else	
+				else
 					new_pet = Pet.find_by(pf_id: pet["id"])
 				end
 				location.pets << new_pet if !location.pets.exists?(pf_id: pet["id"])
