@@ -14,7 +14,7 @@ class Pet < ActiveRecord::Base
 	end
 
 	def self.update_pets
-		binding.pry
+
 	end
 
 	def self.api_request(location)

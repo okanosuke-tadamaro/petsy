@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+
+
+.top-nav {
+  background-color: lightgrey;
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  .top-nav-content {
+    max-width: 980px;
+    margin: 0 auto;
+    .logo {
+      h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 40px;
+        text-transform: lowercase;
+        font-weight: 300;
+      }
+    }
+  }
+}

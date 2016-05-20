@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def logged_in?
+    session[:email].present?
+  end
+
   def current_user
   	User.find_by(email: session[:email])
   end
